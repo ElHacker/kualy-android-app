@@ -19,7 +19,7 @@ public class Index extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_index);
-		ImageView profilePic = (ImageView) findViewById(R.id.profile_pic);
+		ImageView profilePic = (ImageView) findViewById(R.id.profile_image);
 		// Get the circled bitmap
 		Bitmap circleBitmap = ImageHelper.getCircledBitmap(getResources(), 50);
 		// set the image
