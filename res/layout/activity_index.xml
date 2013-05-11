@@ -4,6 +4,33 @@
     android:layout_height="match_parent"
     tools:context=".Index" >
     
+    <LinearLayout
+        android:id="@+id/index_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="@color/dark_orange"
+        android:gravity="center"
+        android:padding="10dp">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="Comenzar a cambiar el mundo."
+            android:shadowColor="@color/black"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"/>
+            
+    </LinearLayout>
+    
     <ListView
         android:id="@+id/android:list"
         android:layout_width="fill_parent"
@@ -13,7 +40,8 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="30dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        android:layout_below="@id/index_header">
     </ListView>
 
 </RelativeLayout>
