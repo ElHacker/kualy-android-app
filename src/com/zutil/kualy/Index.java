@@ -52,7 +52,7 @@ public class Index extends Activity {
 	 		listElements.add(event);
 	 	}
 	 	
-	 	listView.setAdapter(new ActionListAdapter(this, android.R.id.list, listElements, R.layout.list_item));
+	 	listView.setAdapter(new ActionListAdapter(this, android.R.id.list, listElements, R.layout.action_list_item));
 		
 	}
 
