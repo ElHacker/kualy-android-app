@@ -4,5 +4,6 @@
     <string name="app_name">Kualy</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="challenge_activity_instructions">Cumple los retos y mejora tu comunidad. Aumenta tu karma y gana premios.\nComienza Ahora.</string>
 
 </resources>
