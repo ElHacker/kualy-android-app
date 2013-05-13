@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zutil.kualy.R;
+import com.zutil.lib.ActionListElement;
 import com.zutil.lib.BaseListElement;
 import com.zutil.lib.ImageHelper;
 
@@ -21,12 +23,12 @@ import com.zutil.lib.ImageHelper;
  * @author Zutil - Rogelio Guzman, Edilberto Ruvalcaba, Braulio Ch�vez
  *
  */
-public class ActionListAdapter extends ArrayAdapter<BaseListElement>{
+public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
 	
 	/* For debugging */
 	protected static final String TAG = "ArrayAdapter";
 	/* Elements of the list */
-	private List<BaseListElement> listElements;
+	private List<ActionListElement> listElements;
 	/* Layout id*/
 	private int layoutId;
 	
@@ -38,7 +40,7 @@ public class ActionListAdapter extends ArrayAdapter<BaseListElement>{
 	 * @param layoutId
 	 */
 	public ActionListAdapter(Context context, int resourceId,
-			List<BaseListElement> listElements, int layoutId) {
+			List<ActionListElement> listElements, int layoutId) {
 		super(context, resourceId, listElements);
 		this.listElements = listElements;
 		this.layoutId = layoutId;
@@ -62,24 +64,24 @@ public class ActionListAdapter extends ArrayAdapter<BaseListElement>{
             view = inflater.inflate(this.layoutId, null);
         }
 
-        BaseListElement listElement = listElements.get(position);
+        ActionListElement listElement = listElements.get(position);
         if (listElement != null) {
             view.setOnClickListener(listElement.getOnClickListener());
             ImageView cover_image = (ImageView) view.findViewById(R.id.cover_image);
-            TextView tex1 = (TextView) view.findViewById(R.id.user_name);
-            TextView text2 = (TextView) view.findViewById(R.id.user_action);
-            TextView text3 = (TextView) view.findViewById(R.id.karma_text);
+            TextView userName = (TextView) view.findViewById(R.id.user_name);
+            TextView userAction = (TextView) view.findViewById(R.id.user_action);
+            TextView karmaPoints = (TextView) view.findViewById(R.id.karma_text);
             if (cover_image != null) {
             	// Load the image from a url
             }
-            if (tex1 != null) {
-                tex1.setText(listElement.getText1());
+            if (userName != null) {
+                userName.setText(listElement.getUserName());
             }
-            if (text2 != null) {
-                text2.setText(listElement.getText2());
+            if (userAction != null) {
+                userAction.setText(listElement.getUserAction());
             }
-            if (text3 != null) {
-            	text3.setText(listElement.getText3());
+            if (karmaPoints != null) {
+            	karmaPoints.setText(listElement.getKarmaPoints());
             }
             
     		// Fill the profile picture

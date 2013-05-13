@@ -10,18 +10,59 @@ import android.view.View;
 public class ActionListElement extends BaseListElement {
 	
 	private final String TAG = "EventListElement";
+	
+	private String userName;
+	private String userAction;
+	private String karmaPoints;
+	private String coverImageResource;
 
 	/**
 	 * Main Constructor for an element
-	 * @param user_name
-	 * @param user_action
+	 * @param userName
+	 * @param userAction
 	 * @param coverImageResource
 	 */
-    public ActionListElement( String user_name, String user_action, String karma_points, String coverImageResource) {
-        super(user_name, user_action, karma_points, coverImageResource);
+    public ActionListElement( String userName, String userAction, String karmaPoints, String coverImageResource) {
+        super();
+        this.userName = userName;
+        this.userAction = userAction;
+        this.karmaPoints = karmaPoints;
+        this.coverImageResource = coverImageResource;
     }
+    
+    public String getUserName() {
+		return userName;
+	}
 
-    @Override
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserAction() {
+		return userAction;
+	}
+
+	public void setUserAction(String userAction) {
+		this.userAction = userAction;
+	}
+
+	public String getKarmaPoints() {
+		return karmaPoints;
+	}
+
+	public void setKarmaPoints(String karmaPoints) {
+		this.karmaPoints = karmaPoints;
+	}
+
+	public String getCoverImageResource() {
+		return coverImageResource;
+	}
+
+	public void setCoverImageResource(String coverImageResource) {
+		this.coverImageResource = coverImageResource;
+	}
+
+	@Override
     public View.OnClickListener getOnClickListener() {
         return new View.OnClickListener() {
             @Override
