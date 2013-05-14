@@ -1,5 +1,6 @@
 package com.zutil.lib;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -11,6 +12,7 @@ public class ActionListElement extends BaseListElement {
 	
 	private final String TAG = "EventListElement";
 	
+	private Context context;
 	private String userName;
 	private String userAction;
 	private String karmaPoints;
@@ -22,12 +24,13 @@ public class ActionListElement extends BaseListElement {
 	 * @param userAction
 	 * @param coverImageResource
 	 */
-    public ActionListElement( String userName, String userAction, String karmaPoints, String coverImageResource) {
+    public ActionListElement(Context context, String userName, String userAction, String karmaPoints, String coverImageResource) {
         super();
         this.userName = userName;
         this.userAction = userAction;
         this.karmaPoints = karmaPoints;
         this.coverImageResource = coverImageResource;
+        this.context = context;
     }
     
     public String getUserName() {

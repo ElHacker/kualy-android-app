@@ -64,7 +64,7 @@ public class Index extends Activity {
 	 	listElements = new ArrayList<ActionListElement>();
 	 	
 	 	for(int i = 0; i < 3; i++) {
-	 		ActionListElement event = new ActionListElement("Braulio Chavez", "Ayudando a un extraño", "250", "http://foo.bar.com");
+	 		ActionListElement event = new ActionListElement(this, "Braulio Chavez", "Ayudando a un extraño", "250", "http://foo.bar.com");
 	 		listElements.add(event);
 	 	}
 	 	
