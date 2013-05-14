@@ -30,6 +30,10 @@
         <activity 
             android:name="com.zutil.kualy.Challenges"
             android:screenOrientation="portrait" />
+        
+        <activity 
+            android:name="com.zutil.kualy.Challenge"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

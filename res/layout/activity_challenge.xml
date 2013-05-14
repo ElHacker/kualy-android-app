@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    
+	    <LinearLayout 
+		    android:id="@+id/challenge_info_layout"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:padding="15dp"
+		    android:background="@color/dark_orange">
+		    
+		    <TextView 
+		        android:id="@+id/challenge_number"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center"
+		        android:text="1"
+		        android:textSize="20sp"
+		        android:textStyle="bold"
+		        android:textColor="@color/white"
+		        android:background="@drawable/challenge_number_bg_shape"/>
+		    
+		    <LinearLayout 
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:gravity="center_vertical"
+		        android:orientation="vertical"
+		        android:layout_marginLeft="10dp">
+		        
+		        <TextView
+		            android:id="@+id/challenge_name"
+		            style="@style/ShadowText"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Ayuda a un desconocido"
+		            android:textSize="16sp"
+		            android:textColor="@color/white" />
+		        
+		        <LinearLayout 
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:orientation="horizontal">
+		            
+		            <TextView
+		                android:id="@+id/challenge_area"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="Humanidad"
+			            android:textSize="16sp"
+			            android:textColor="@color/dark_gray" />
+		            
+		            <TextView
+		                android:id="@+id/challenge_accomplished"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="12 logros"
+			            android:textSize="12sp"
+			            android:textColor="@color/shadow_gray"
+			            android:layout_marginLeft="5dp" />
+		            
+		        </LinearLayout>
+		        
+		    </LinearLayout>
+		</LinearLayout>
+	
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:background="@color/light_blue"
+	        android:padding="40dp">
+	
+	        <TextView 
+	            android:id="@+id/challenge_description"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center"
+	            android:text="@string/challenge_description"
+	            android:textColor="@color/pale_green"
+	            android:textSize="18sp"/>
+	        
+	        <LinearLayout 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginTop="20dp"
+	            android:layout_marginBottom="20dp"
+	            android:orientation="horizontal"
+	            android:gravity="center_horizontal"
+	            android:background="@drawable/challenge_karma_bg_shape">
+	            
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginRight="10dp"
+	                android:text="k"
+	                android:textStyle="bold"
+	                android:textColor="@color/pale_green"
+	                android:textSize="18sp"
+	                android:background="@drawable/challenge_karma_circle_shape" />
+	            
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="200"
+	                android:textStyle="bold"
+	                android:textColor="@color/pale_green"
+	                android:textSize="18sp" />
+	            
+	        </LinearLayout>
+	        
+	        <Button
+	            style="@style/ShadowText" 
+	            android:id="@+id/challenge_accomplish_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:text="@string/challenge_accomplish"
+	            android:textColor="@color/white"
+	            android:background="@drawable/challenge_accomplish_button"/>
+	    </LinearLayout>
+	</LinearLayout>
+</ScrollView>
