@@ -87,14 +87,38 @@
 	    android:paddingBottom="2dp"
 	    android:paddingTop="2dp" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="500 Likes · 150 Comentarios"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="@color/orange_palette"/>
+        android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/likes_count"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="500 Likes"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:textColor="@color/orange_palette"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=" · "
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:textColor="@color/gray_dark"/>
+
+		<TextView
+			android:id="@+id/coments_count"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="150 Comentarios"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:textColor="@color/orange_palette"/>
+	</LinearLayout>
 
 	<ImageView
 	    android:src="@android:drawable/divider_horizontal_textfield"
