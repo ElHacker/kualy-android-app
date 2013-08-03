@@ -70,7 +70,6 @@ public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
             ImageView cover_image = (ImageView) view.findViewById(R.id.cover_image);
             TextView userName = (TextView) view.findViewById(R.id.user_name);
             TextView userAction = (TextView) view.findViewById(R.id.user_action);
-            TextView karmaPoints = (TextView) view.findViewById(R.id.karma_text);
             if (cover_image != null) {
             	// Load the image from a url
             }
@@ -80,14 +79,11 @@ public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
             if (userAction != null) {
                 userAction.setText(listElement.getUserAction());
             }
-            if (karmaPoints != null) {
-            	karmaPoints.setText(listElement.getKarmaPoints());
-            }
             
     		// Fill the profile picture
     		ImageView profilePic = (ImageView) view.findViewById(R.id.profile_image);
     		// Get the circled bitmap
-    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 50);
+    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 45);
     		// set the image
     		profilePic.setImageBitmap(circleBitmap);
         }

@@ -7,81 +7,116 @@
 	android:orientation="vertical"
 	android:background="@drawable/activity_element_shape">
 
+    <!-- Challenge title -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:background="@color/green_palette">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#DogHero"
+            android:textColor="@color/white_yellow_tint_palette"
+            android:textSize="20sp"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+    <!-- Cover Image -->
 	<ImageView
 		android:id="@+id/cover_image"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:src="@drawable/cover_image"
+		android:src="@drawable/dog_cover_image"
 		android:adjustViewBounds="true"
 		android:contentDescription="@string/hello_world"/>
 	
+	<!-- Description section -->
 	<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="10dp">
+
+	    <ImageView
+	        android:id="@+id/profile_image"
+	        android:contentDescription="@string/hello_world"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/profile_circle_shape"/>
 	    
-		<LinearLayout
-		    android:orientation="horizontal"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:padding="10dp">
-	
-		    <ImageView
-		        android:id="@+id/profile_image"
-		        android:contentDescription="@string/hello_world"
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:gravity="center_vertical">
+
+	        <TextView
+		        android:id="@+id/user_name"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:background="@drawable/profile_circle_shape"/>
-		    
-		    <LinearLayout 
-		        android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-		        android:orientation="vertical"
-		        android:gravity="center_vertical">
-		        
-		        <TextView
-			        android:id="@+id/user_name"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content" 
-			        android:text="Braulio Chavez"
-			        android:textColor="@color/dark_orange"
-			        android:textStyle="bold"
-			        android:layout_marginLeft="10dp"
-			        android:textSize="16sp" />
-			    <TextView
-			        android:id="@+id/user_action"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content" 
-			        android:text="Ayudando a un extraño"
-			        android:textColor="@color/dark_gray"
-			        android:textSize="12sp"
-			        android:layout_marginLeft="10dp" />
-		    </LinearLayout>
-		</LinearLayout>
-		
-		<RelativeLayout
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_gravity="right|bottom"
-		    android:background="@drawable/karma_points_shape"
-		    android:gravity="center" >
-		
+		        android:text="HackerOfDreams"
+		        android:textColor="@color/orange_palette"
+		        android:textStyle="bold"
+		        android:layout_marginLeft="10dp"
+		        android:textSize="14sp" />
+
 		    <TextView
-		        android:id="@+id/karma_text" 
+		        android:id="@+id/user_action"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:textColor="@color/white"
-		        android:text="200"/>
-		    <ImageView
-		        android:id="@+id/karma_icon_image"
-		        android:contentDescription="@string/hello_world"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:src="@drawable/karma_icon"
-		        android:adjustViewBounds="true"
-		        android:layout_toRightOf="@id/karma_text"
-		        android:layout_marginLeft="5dp"/>
-		</RelativeLayout>
-	
+		        android:text="Que agusto descansan en su nuevo hogar, los encontre abandonados en un bote de basura. Pero ya tienen donde relajarse y disfrutar del invierno. Son tres hermanos. Ya quiero lograr los caracteres creo que son demasiados no se si exageramos con tantos."
+		        android:textColor="@color/gray_dark"
+		        android:textSize="14sp"
+		        android:typeface="serif"
+		        android:layout_marginLeft="10dp" />
+	    </LinearLayout>
+	</LinearLayout>
+
+    <!-- Likes and comments section -->
+    <ImageView
+	    android:src="@android:drawable/divider_horizontal_textfield"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scaleType="fitXY"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingBottom="2dp"
+	    android:paddingTop="2dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="500 Likes · 150 Comentarios"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange_palette"/>
+
+	<ImageView
+	    android:src="@android:drawable/divider_horizontal_textfield"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scaleType="fitXY"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingBottom="2dp"
+	    android:paddingTop="2dp" />
+
+	<!-- Like and comment buttons -->
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right"
+		android:layout_margin="10dp"
+		android:background="@drawable/image_buttons_background_shape">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_heart_unselected"/>
 	</LinearLayout>
 </LinearLayout>

@@ -46,25 +46,14 @@ public class Index extends Activity {
 	    background.setTileModeX(android.graphics.Shader.TileMode.REPEAT); 
 	    bar.setBackgroundDrawable(background);
 		
-	    linearLayoutHeader = (LinearLayout) findViewById(R.id.index_header);
 		listView = (ListView) findViewById(android.R.id.list);
-		
-		// Bind on click listener
-		linearLayoutHeader.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Call challenges activity
-				Intent intent = new Intent(	Index.this, Challenges.class );
-				startActivity(intent);
-			}
-		});
 		
 		// Set up the list view items, based on a list of
 	 	// BaseListElement items
 	 	listElements = new ArrayList<ActionListElement>();
 	 	
 	 	for(int i = 0; i < 3; i++) {
-	 		ActionListElement event = new ActionListElement(this, "Braulio Chavez", "Ayudando a un extraño", "250", "http://foo.bar.com");
+	 		ActionListElement event = new ActionListElement(this, "HackerOfDreams", "Que agusto descansan en su nuevo hogar, los encontre abandonados en un bote de basura. Pero ya tienen donde relajarse y disfrutar del invierno. Son tres hermanos. Ya quiero lograr los caracteres creo que son demasiados no se si exageramos con tantos.", "250", "http://foo.bar.com");
 	 		listElements.add(event);
 	 	}
 	 	

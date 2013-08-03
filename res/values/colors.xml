@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark_orange">#e34a3a</color>
-    <color name="blue_gray">#d3e7ee</color>
-    <color name="dark_gray">#99000000</color>
-    <color name="shadow_gray">#55000000</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
-    <color name="purple">#9b59b6</color>
-    <color name="blue">#2980b9</color>
-    <color name="green">#27ae60</color>
-    <color name="dark_blue">#3a4e5d</color>
-    <color name="light_blue">#d9f0ed</color>
-	<color name="pale_green">#668883</color>
-	<color name="pale_blue">#cee4e1</color>
-	<color name="dark_pale_blue">#a8c4c0</color>
-	<color name="gray">#8f9f9d</color>
-	<color name="light_green">#7cd6a2</color>
-	
+	<color name="yellow_palette">#FFBB00</color>
+
+	<color name="orange_palette">#E34A3A</color>
+
+	<color name="purple">#9B59B6</color>
+
+	<color name="blue">#2980B9</color>
+	<color name="blue_gray">#D3E7EE</color>
+	<color name="blue_dark">#3A4E5D</color>
+	<color name="blue_light">#D9F0ED</color>
+	<color name="blue_green_pale_palette">#95E2E8</color>
+	<color name="blue_pale">#CEE4E1</color>
+	<color name="blue_dark_pale">#A8C4C0</color>
+
+	<color name="green_palette">#27AE60</color>
+	<color name="green_pale">#668883</color>
+	<color name="green_light">#7CD6A2</color>
+
+	<color name="gray">#8F9F9D</color>
+	<color name="shadow_gray">#55000000</color>
+	<color name="gray_dark">#99000000</color>
+
+	<color name="white">#FFFFFF</color>
+	<color name="white_yellow_tint_palette">#FDFFFE</color>
+
+	<color name="black">#000000</color>
 </resources>

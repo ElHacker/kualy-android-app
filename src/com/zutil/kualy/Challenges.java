@@ -50,7 +50,7 @@ public class Challenges extends Activity {
 	 	// BaseListElement items
 	 	listElements = new ArrayList<ChallengeListElement>();
 	 	
-	 	int colors[] = { R.color.dark_orange, R.color.purple, R.color.blue, R.color.green};
+	 	int colors[] = { R.color.orange_palette, R.color.purple, R.color.blue, R.color.green_palette};
 	 	for(int i = 0; i < 9; i++) {
 	 		ChallengeListElement event = new ChallengeListElement(this, "" + (i + 1), "Ayuda a un extraño", "Humanidad", "12 Logros", colors[i%4]);
 	 		listElements.add(event);
