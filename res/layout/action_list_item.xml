@@ -71,7 +71,6 @@
 		        android:text="Que agusto descansan en su nuevo hogar, los encontre abandonados en un bote de basura. Pero ya tienen donde relajarse y disfrutar del invierno. Son tres hermanos. Ya quiero lograr los caracteres creo que son demasiados no se si exageramos con tantos."
 		        android:textColor="@color/gray_dark"
 		        android:textSize="14sp"
-		        android:typeface="serif"
 		        android:layout_marginLeft="10dp" />
 	    </LinearLayout>
 	</LinearLayout>
