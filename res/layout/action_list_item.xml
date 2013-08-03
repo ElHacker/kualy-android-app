@@ -108,15 +108,32 @@
 
 	<!-- Like and comment buttons -->
 	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="right"
-		android:layout_margin="10dp"
-		android:background="@drawable/image_buttons_background_shape">
-
-		<ImageView
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="right"
+	    android:orientation="horizontal">
+		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:src="@drawable/ic_heart_unselected"/>
+			android:layout_margin="10dp"
+			android:background="@drawable/image_buttons_background_shape">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_coment"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:background="@drawable/image_buttons_background_shape">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_heart_unselected"/>
+		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>
