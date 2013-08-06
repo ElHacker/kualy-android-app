@@ -1,33 +1,45 @@
 package com.zutil.kualy;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.holoeverywhere.app.Activity;
-import org.holoeverywhere.widget.ListView;
 
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.zutil.adapters.ActionListAdapter;
-import com.zutil.lib.ActionListElement;
+import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.DurationInMillis;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
+import com.octo.android.robospice.spicelist.BitmapSpiceManager;
+import com.zutil.kualy.adapters.ActivityListAdapter;
+import com.zutil.kualy.models.ListActivities;
+import com.zutil.kualy.network.ActivityJsonRequest;
 
 public class Index extends Activity {
 
 	private static final String TAG = "Index";
 
-	private LinearLayout linearLayoutHeader;
-	private ListView listView;
+	private ListView activityListView;
+	private View loadingView;
 
-	private List<ActionListElement> listElements;
+	private ActivityListAdapter activityListAdapter;
+
+	private SpiceManager spiceManagerJson = new SpiceManager(JacksonSpringAndroidSpiceService.class);
+	private BitmapSpiceManager spiceManagerBinary = new BitmapSpiceManager();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		setProgressBarIndeterminateVisibility(false);
 		setContentView(R.layout.activity_index);
 
 		// Create action bar
@@ -38,20 +50,56 @@ public class Index extends Activity {
 	    background.setTileModeX(android.graphics.Shader.TileMode.REPEAT);
 	    bar.setBackgroundDrawable(background);
 
-		listView = (ListView) findViewById(android.R.id.list);
-
-		// Set up the list view items, based on a list of
-	 	// BaseListElement items
-	 	listElements = new ArrayList<ActionListElement>();
-
-	 	for(int i = 0; i < 3; i++) {
-	 		ActionListElement event = new ActionListElement(this, "HackerOfDreams", "Que agusto descansan en su nuevo hogar, los encontre abandonados en un bote de basura. Pero ya tienen donde relajarse y disfrutar del invierno. Son tres hermanos. Ya quiero lograr los caracteres creo que son demasiados no se si exageramos con tantos.", "250", "http://foo.bar.com");
-	 		listElements.add(event);
-	 	}
-
-	 	listView.setAdapter(new ActionListAdapter(this, android.R.id.list, listElements, R.layout.action_list_item));
-
+	    activityListView = (ListView) findViewById(R.id.actions_feed_listview);
+	    loadingView = findViewById(R.id.loading_layout);
 	}
 
+	@Override
+	public void onStart() {
+		super.onStart();
+		spiceManagerJson.start(this);
+		spiceManagerBinary.start(this);
 
+		loadListActivities();
+	}
+
+	@Override
+	public void onStop() {
+		spiceManagerJson.shouldStop();
+		spiceManagerBinary.shouldStop();
+		super.onStop();
+	}
+
+	private void updateListViewContent(ListActivities activities) {
+		activityListAdapter = new ActivityListAdapter(this, spiceManagerBinary, activities);
+		activityListView.setAdapter(activityListAdapter);
+
+		loadingView.setVisibility(View.GONE);
+		activityListView.setVisibility(View.VISIBLE);
+	}
+
+	private void loadListActivities() {
+		setProgressBarIndeterminateVisibility(true);
+		spiceManagerJson.execute(new ActivityJsonRequest("1"), "activities", DurationInMillis.ONE_SECOND * 10, new ListActivitiesListener());
+	}
+
+	private class ListActivitiesListener implements RequestListener<ListActivities> {
+
+		@Override
+		public void onRequestFailure(SpiceException spiceException) {
+			setProgressBarIndeterminateVisibility(false);
+			Toast.makeText(Index.this, "Imposible obtener la lista de actividades", Toast.LENGTH_SHORT).show();
+		}
+
+		@Override
+		public void onRequestSuccess(ListActivities result) {
+			setProgressBarIndeterminateVisibility(false);
+			String serializedResult = "";
+			for (com.zutil.kualy.models.Activity activity: result.getFeed()) {
+				serializedResult += activity.getId() + ": " + activity.getMediaURL()+ ", ";
+			}
+			Log.d(TAG, serializedResult);
+			updateListViewContent(result);
+		}
+	}
 }

@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.zutil.adapters.ChallengeListAdapter;
-import com.zutil.lib.ChallengeListElement;
+import com.zutil.kualy.adapters.ChallengeListAdapter;
+import com.zutil.kualy.lib.ChallengeListElement;
 
 public class Challenges extends Activity {
 

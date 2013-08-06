@@ -1,4 +1,4 @@
-package com.zutil.adapters;
+package com.zutil.kualy.adapters;
 
 import java.util.List;
 
@@ -11,24 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zutil.kualy.R;
-import com.zutil.lib.ActionListElement;
-import com.zutil.lib.BaseListElement;
-import com.zutil.lib.ImageHelper;
+import com.zutil.kualy.lib.ChallengeListElement;
+import com.zutil.kualy.lib.ImageHelper;
 
 /**
- * Represents an adapter for actions
- * @author Zutil - Rogelio Guzman, Edilberto Ruvalcaba, Braulio Ch�vez
+ * Represents an adapter for challenges
  *
  */
-public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
+public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
 	
 	/* For debugging */
 	protected static final String TAG = "ArrayAdapter";
 	/* Elements of the list */
-	private List<ActionListElement> listElements;
+	private List<ChallengeListElement> listElements;
 	/* Layout id*/
 	private int layoutId;
 	
@@ -39,8 +38,8 @@ public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
 	 * @param listElements
 	 * @param layoutId
 	 */
-	public ActionListAdapter(Context context, int resourceId,
-			List<ActionListElement> listElements, int layoutId) {
+	public ChallengeListAdapter(Context context, int resourceId,
+			List<ChallengeListElement> listElements, int layoutId) {
 		super(context, resourceId, listElements);
 		this.listElements = listElements;
 		this.layoutId = layoutId;
@@ -64,28 +63,31 @@ public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
             view = inflater.inflate(this.layoutId, null);
         }
 
-        ActionListElement listElement = listElements.get(position);
+        ChallengeListElement listElement = listElements.get(position);
         if (listElement != null) {
             view.setOnClickListener(listElement.getOnClickListener());
-            ImageView cover_image = (ImageView) view.findViewById(R.id.cover_image);
-            TextView userName = (TextView) view.findViewById(R.id.user_name);
-            TextView userAction = (TextView) view.findViewById(R.id.user_action);
-            if (cover_image != null) {
-            	// Load the image from a url
+            LinearLayout challengeLayout = (LinearLayout) view.findViewById(R.id.challenge_layout);
+            TextView challengeNumber = (TextView) view.findViewById(R.id.challenge_number);
+            TextView challengeName = (TextView) view.findViewById(R.id.challenge_name);
+            TextView challengeArea = (TextView) view.findViewById(R.id.challenge_area);
+            TextView challengeAccomplished = (TextView) view.findViewById(R.id.challenge_accomplished);
+            if(challengeLayout != null) {
+            	// Change background color
+            	challengeLayout.setBackgroundResource(listElement.getChallengeColor());
+            } 
+            if (challengeNumber != null) {
+                challengeNumber.setText(listElement.getChallengeNumber());
             }
-            if (userName != null) {
-                userName.setText(listElement.getUserName());
+            if (challengeName != null) {
+                challengeName.setText(listElement.getChallengeName());
             }
-            if (userAction != null) {
-                userAction.setText(listElement.getUserAction());
+            if (challengeArea != null) {
+            	challengeArea.setText(listElement.getChallengeArea());
+            }
+            if(challengeAccomplished != null) {
+            	challengeAccomplished.setText(listElement.getChallengeAccomplished());
             }
             
-    		// Fill the profile picture
-    		ImageView profilePic = (ImageView) view.findViewById(R.id.profile_image);
-    		// Get the circled bitmap
-    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 45);
-    		// set the image
-    		profilePic.setImageBitmap(circleBitmap);
         }
         return view;
     }

@@ -1,36 +1,35 @@
-package com.zutil.adapters;
+package com.zutil.kualy.adapters;
 
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zutil.kualy.R;
-import com.zutil.lib.ChallengeListElement;
-import com.zutil.lib.ImageHelper;
+import com.zutil.kualy.lib.ActionListElement;
+import com.zutil.kualy.lib.ImageHelper;
 
 /**
- * Represents an adapter for challenges
+ * Represents an adapter for actions
+ * @author Zutil - Rogelio Guzman, Edilberto Ruvalcaba, Braulio Ch�vez
  *
  */
-public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
-	
+public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
+
 	/* For debugging */
 	protected static final String TAG = "ArrayAdapter";
 	/* Elements of the list */
-	private List<ChallengeListElement> listElements;
+	private final List<ActionListElement> listElements;
 	/* Layout id*/
-	private int layoutId;
-	
+	private final int layoutId;
+
 	/**
 	 * Main constructor
 	 * @param context
@@ -38,8 +37,8 @@ public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
 	 * @param listElements
 	 * @param layoutId
 	 */
-	public ChallengeListAdapter(Context context, int resourceId,
-			List<ChallengeListElement> listElements, int layoutId) {
+	public ActionListAdapter(Context context, int resourceId,
+			List<ActionListElement> listElements, int layoutId) {
 		super(context, resourceId, listElements);
 		this.listElements = listElements;
 		this.layoutId = layoutId;
@@ -49,7 +48,7 @@ public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
 			listElements.get(i).setAdapter(this);
 		}
 	}
-	
+
 	/**
 	 * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
 	 * Renders the view of the elements inside a list
@@ -63,31 +62,28 @@ public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
             view = inflater.inflate(this.layoutId, null);
         }
 
-        ChallengeListElement listElement = listElements.get(position);
+        ActionListElement listElement = listElements.get(position);
         if (listElement != null) {
             view.setOnClickListener(listElement.getOnClickListener());
-            LinearLayout challengeLayout = (LinearLayout) view.findViewById(R.id.challenge_layout);
-            TextView challengeNumber = (TextView) view.findViewById(R.id.challenge_number);
-            TextView challengeName = (TextView) view.findViewById(R.id.challenge_name);
-            TextView challengeArea = (TextView) view.findViewById(R.id.challenge_area);
-            TextView challengeAccomplished = (TextView) view.findViewById(R.id.challenge_accomplished);
-            if(challengeLayout != null) {
-            	// Change background color
-            	challengeLayout.setBackgroundResource(listElement.getChallengeColor());
-            } 
-            if (challengeNumber != null) {
-                challengeNumber.setText(listElement.getChallengeNumber());
+            ImageView cover_image = (ImageView) view.findViewById(R.id.activity_image);
+            TextView userName = (TextView) view.findViewById(R.id.user_name);
+            TextView userAction = (TextView) view.findViewById(R.id.activity_body);
+            if (cover_image != null) {
+            	// Load the image from a url
             }
-            if (challengeName != null) {
-                challengeName.setText(listElement.getChallengeName());
+            if (userName != null) {
+                userName.setText(listElement.getUserName());
             }
-            if (challengeArea != null) {
-            	challengeArea.setText(listElement.getChallengeArea());
+            if (userAction != null) {
+                userAction.setText(listElement.getUserAction());
             }
-            if(challengeAccomplished != null) {
-            	challengeAccomplished.setText(listElement.getChallengeAccomplished());
-            }
-            
+
+    		// Fill the profile picture
+    		ImageView profilePic = (ImageView) view.findViewById(R.id.profile_image);
+    		// Get the circled bitmap
+    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 45);
+    		// set the image
+    		profilePic.setImageBitmap(circleBitmap);
         }
         return view;
     }
@@ -100,5 +96,5 @@ public class ChallengeListAdapter extends ArrayAdapter<ChallengeListElement>{
 		Activity activity = (Activity) getContext();
 		return activity;
 	}
-	
+
 }

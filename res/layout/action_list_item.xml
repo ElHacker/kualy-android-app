@@ -7,7 +7,7 @@
 	android:orientation="vertical"
 	android:background="@drawable/activity_element_shape">
 
-    <!-- Challenge title -->
+    <!-- Cause title -->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -16,6 +16,7 @@
         android:background="@color/green_palette">
 
         <TextView
+            android:id="@+id/cause_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#DogHero"
@@ -25,9 +26,9 @@
 
     </LinearLayout>
 
-    <!-- Cover Image -->
+    <!-- Activity Image -->
 	<ImageView
-		android:id="@+id/cover_image"
+		android:id="@+id/activity_image"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:src="@drawable/dog_cover_image"
@@ -65,7 +66,7 @@
 		        android:textSize="14sp" />
 
 		    <TextView
-		        android:id="@+id/user_action"
+		        android:id="@+id/activity_body"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="Que agusto descansan en su nuevo hogar, los encontre abandonados en un bote de basura. Pero ya tienen donde relajarse y disfrutar del invierno. Son tres hermanos. Ya quiero lograr los caracteres creo que son demasiados no se si exageramos con tantos."

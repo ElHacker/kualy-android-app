@@ -1,4 +1,4 @@
-package com.zutil.lib;
+package com.zutil.kualy.lib;
 
 import com.zutil.kualy.R;
 

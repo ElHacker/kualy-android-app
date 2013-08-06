@@ -1,11 +1,36 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
     tools:context=".Index" >
-        
-    <ListView
-        android:id="@+id/android:list"
+
+    <LinearLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:indeterminate="true"/>
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/loading_please_wait"
+            android:textColor="@color/gray_dark"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <com.octo.android.robospice.spicelist.SpiceListView
+        android:id="@+id/actions_feed_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@android:color/transparent"
@@ -13,7 +38,7 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="30dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
-    </ListView>
+        android:paddingRight="10dp"
+        android:visibility="gone" />
 
-</RelativeLayout>
+</LinearLayout>
