@@ -8,6 +8,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     
     <application
@@ -34,6 +35,14 @@
         <activity 
             android:name="com.zutil.kualy.Challenge"
             android:screenOrientation="portrait" />
+
+		<!-- ROBOSPICE SERVICES -->
+		<service
+			android:name="com.octo.android.robospice.JacksonSpringAndroidSpiceService"
+			android:exported="false" />
+		<service
+			android:name="com.octo.android.robospice.spicelist.BitmapSpiceService"
+			android:exported="false" />
     </application>
 
 </manifest>
