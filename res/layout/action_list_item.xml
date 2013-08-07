@@ -29,11 +29,12 @@
     <!-- Activity Image -->
 	<ImageView
 		android:id="@+id/activity_image"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@drawable/dog_cover_image"
+		android:layout_width="fill_parent"
+		android:layout_height="350dp"
 		android:adjustViewBounds="true"
-		android:contentDescription="@string/hello_world"/>
+		android:scaleType="centerCrop"
+		android:contentDescription="@string/hello_world"
+		android:background="@drawable/image_placeholder_shape"/>
 	
 	<!-- Description section -->
 	<LinearLayout
