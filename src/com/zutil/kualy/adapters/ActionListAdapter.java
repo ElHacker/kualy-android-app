@@ -81,7 +81,7 @@ public class ActionListAdapter extends ArrayAdapter<ActionListElement>{
     		// Fill the profile picture
     		ImageView profilePic = (ImageView) view.findViewById(R.id.profile_image);
     		// Get the circled bitmap
-    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 45);
+    		Bitmap circleBitmap = ImageHelper.getCircledBitmap(view.getResources(), 50);
     		// set the image
     		profilePic.setImageBitmap(circleBitmap);
         }
