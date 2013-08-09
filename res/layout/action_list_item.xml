@@ -137,17 +137,13 @@
 	    android:layout_height="wrap_content"
 	    android:gravity="right"
 	    android:orientation="horizontal">
-		<LinearLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="10dp"
-			android:background="@drawable/image_buttons_background_shape">
-
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:src="@drawable/ic_coment"/>
-		</LinearLayout>
+		<ImageButton
+		    android:id="@+id/comment_button"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="10dp"
+		    android:src="@drawable/coment_button"
+		    android:background="@null"/>
 
 		<ImageButton
 		    android:id="@+id/like_button"

@@ -10,6 +10,7 @@
 
 	<color name="blue">#2980B9</color>
 	<color name="blue_gray">#D3E7EE</color>
+	<color name="blue_gray_dark">#7DBED5</color>
 	<color name="blue_dark">#3A4E5D</color>
 	<color name="blue_light">#D9F0ED</color>
 	<color name="blue_green_pale_palette">#95E2E8</color>
