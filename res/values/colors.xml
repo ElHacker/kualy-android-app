@@ -27,6 +27,7 @@
 
 	<color name="white">#FFFFFF</color>
 	<color name="white_yellow_tint_palette">#FDFFFE</color>
+	<color name="white_yellow_tint_gray">#DFE0E0</color>
 
 	<color name="black">#000000</color>
 </resources>

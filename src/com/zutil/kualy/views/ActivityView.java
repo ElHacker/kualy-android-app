@@ -1,13 +1,16 @@
 package com.zutil.kualy.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.octo.android.robospice.spicelist.SpiceListItemView;
+import com.zutil.kualy.CauseProfile;
 import com.zutil.kualy.R;
 import com.zutil.kualy.lib.ImageHelper;
 import com.zutil.kualy.models.Activity;
@@ -35,6 +38,17 @@ public class ActivityView extends LinearLayout implements SpiceListItemView<Acti
 		Bitmap circleBitmap = ImageHelper.getCircledBitmap(this.getResources(), 45);
 		// set the image
 		profileImageView.setImageBitmap(circleBitmap);
+
+		// TODO: temporal linkage between activities, remove later
+	    TextView causeTitle = (TextView) findViewById(R.id.cause_title);
+	    causeTitle.setOnClickListener( new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getContext(), CauseProfile.class);
+				((org.holoeverywhere.app.Activity) getContext()).startActivity(intent);
+			}
+		});
 	}
 
 	@Override

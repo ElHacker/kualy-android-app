@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blue_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/green_palette">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="#DogHero"
+            android:textSize="26sp"
+            android:textColor="@color/white_yellow_tint_palette"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvando al mejor amigo del hombre"
+            android:textSize="20sp"
+            android:textColor="@color/white_yellow_tint_palette"
+            android:gravity="center"/>
+
+        <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:orientation="horizontal"
+	        android:gravity="center">
+
+	        <TextView
+	            android:id="@+id/likes_count"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="500 LIKES"
+	            android:textSize="14sp"
+	            android:textColor="@color/white_yellow_tint_gray"/>
+
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dp"
+	            android:layout_marginRight="5dp"
+	            android:text="·"
+	            android:textSize="14sp"
+	            android:textColor="@color/white_yellow_tint_gray"/>
+
+	        <TextView
+	            android:id="@+id/collaborators_count"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="150 COLABORADORES"
+	            android:textSize="14sp"
+	            android:textColor="@color/white_yellow_tint_gray"/>
+
+    	</LinearLayout>
+    </LinearLayout>   
+</LinearLayout>
